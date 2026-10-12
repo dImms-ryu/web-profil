@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+
+
+*{
+box-sizing: border-box;
+}
+body{
+    font-family: Quicksand, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+h2, h3 {
+    color: #602a77;
+}
+nav a{
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    font-weight: bold;
+    
+}
+.profile header{
+    text-align: center;
+}
+.feature-image{
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+.profile img{
+    width: 200px;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    border-radius: 5px; 
+    padding: 20px; 
+    margin-top: 20px; 
+}
+nav li { 
+ display: inline; 
+ list-style-type: none; 
+ margin-right: 20px; 
+ } 
+ nav { 
+ background-color: #0c0c1f; 
+ padding: 5px; 
+ } 
+.jumbotron { 
+ font-size: 20px; 
+ padding: 60px; 
+ background-color: #211640; 
+ text-align: center; 
+ color: white; 
+ } 
+ main{
+    padding: 20px;
+    overflow: auto;
+ }
+ #content { 
+ float: left; 
+ width: 75%; 
+ } 
+aside{
+    float: right;
+    width: 25%;
+    padding-left: 20px;
+}
+@media screen and (max-width: 1000px) { 
+ #content, aside { 
+ width: 100%; 
+ padding: 0; 
+ } 
+ } 
+footer { 
+ padding: 20px; 
+ color: white; 
+ background-color: #211640; 
+ text-align: center;
+ font-weight: bold;
+ 
+ }
+
+ html { scroll-behavior: smooth; }
+nav { position: sticky; top: 0; }
+
+.card { transition: transform 0.2s; }
+.card:hover { transform: translateY(-5px); }
+
+.profile img { border-radius: 50%; }
+
+/* ===== Jumbotron gradasi bergerak ===== */
+.jumbotron {
+    background: linear-gradient(120deg, #00c8eb, #00a2c6, #7b61ff, #00c8eb);
+    background-size: 300% 300%;
+    animation: gradasi 10s ease infinite;
+}
+@keyframes gradasi {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* ===== footer gradasi bergerak ==== */
+
+footer {
+    background: linear-gradient(120deg, #00c8eb, #00a2c6, #7b61ff, #00c8eb);
+    background-size: 300% 300%;
+    animation: gradasi 10s ease infinite;
+}
+@keyframes gradasi {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Kartu muncul satu per satu saat halaman dibuka ===== */
+.card { animation: muncul 0.7s ease both; }
+#content .card:nth-child(2) { animation-delay: 0.15s; }
+#content .card:nth-child(3) { animation-delay: 0.3s; }
+@keyframes muncul {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Gambar zoom halus saat disentuh ===== */
+.feature-image { transition: transform 0.4s; }
+.card:hover .feature-image { transform: scale(1.03); }
+
+/* ===== Garis bawah animasi di menu ===== */
+nav a { position: relative; padding-bottom: 3px; }
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 2px;
+    background: white;
+    transition: width 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* ===== Foto profil: bingkai + cahaya ===== */
+.profile img {
+    border: 4px solid #00c8eb;
+    box-shadow: 0 0 20px rgba(0, 200, 235, 0.6);
+}
+
+/* ===== Tabel info lebih rapi ===== */
+.profile table { width: 100%; border-collapse: collapse; }
+.profile th { text-align: left; color: #00a2c6; }
+.profile th, .profile td { padding: 8px 4px; border-bottom: 1px solid #eee; }
+.profile tr:hover { background: #f0fbfe; }
+
+/* ===== Detail kecil ===== */
+::selection { background: #00c8eb; color: white; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #00a2c6; border-radius: 10px; }
+h2 { border-left: 5px solid #00c8eb; padding-left: 10px; }
+
+/* ===== Chip / label keahlian ===== */
+.chip {
+    display: inline-block;
+    background: #e6f9fd;
+    color: #00a2c6;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin: 3px 4px 3px 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ===== Tombol kembali ke atas ===== */
+.to-top {
+    position: fixed; right: 20px; bottom: 20px;
+    width: 45px; height: 45px; line-height: 45px;
+    text-align: center; border-radius: 50%;
+    background: #00a2c6; color: white;
+    text-decoration: none; font-size: 22px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.to-top:hover { background: #00c8eb; }
+
+/* ===== Mode gelap otomatis (mengikuti pengaturan HP/laptop) ===== */
+@media (prefers-color-scheme: dark) {
+    body { background: #12181c; color: #e6e6e6; }
+    .card { background: #1b252b; }
+    .chip { background: #12333b; }
+    .profile th, .profile td { border-color: #2a3840; }
+    .profile tr:hover { background: #22323a; }
+    h2, h3 {
+    color: #fdfcfc;
+}
+}
+
+/* ===== animasi ketikan ===== */
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: monospace;
+    border-right: 3px solid white;
+    width: 0;
+    animation: ketik 3s steps(26) forwards, kedip 0.7s step-end infinite;
+}
+@keyframes ketik { to { width: 26ch; } }
+@keyframes kedip { 50% { border-color: transparent; } }
+
+/* ===== bar kemampuan ===== */
+
+.skill { margin-bottom: 12px; font-weight: 600; }
+.bar { background: #e6f9fd; border-radius: 20px; height: 12px; margin-top: 5px; overflow: hidden; }
+.bar div { height: 100%; background: linear-gradient(90deg, #00c8eb, #7b61ff); border-radius: 20px; }
+
+/* ===== scroll bar ===== */
+
+.scroll-bar {
+    position: fixed; top: 0; left: 0; width: 100%; height: 5px; z-index: 20;
+    background: linear-gradient(90deg, #00c8eb, #7b61ff);
+    transform-origin: left; transform: scaleX(0);
+    animation: isi linear; animation-timeline: scroll();
+}
+@keyframes isi { to { transform: scaleX(1); } }
